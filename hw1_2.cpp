@@ -44,7 +44,7 @@ int main() {
     vector<int> groupThree;
 
 
-    //Compare arrays
+    //Compare 1st array
     for(int i = 0; i < groupOneAmount; i++) {
         for(int j = 0; j < groupTwoAmount; j++) {
             if(groupOne[i] == groupTwo[j]) {
@@ -52,15 +52,38 @@ int main() {
             }
         }
         if(matchFound == false) {
-            cout << groupOne[i];
             groupThree.push_back(groupOne[i]);
         }
         matchFound = false;
     }
+    //Compare Second Array
+    for(int i = 0; i < groupTwoAmount; i++) {
+        for(int j = 0; j < groupOneAmount; j++) {
+            if(groupTwo[i] == groupOne[j]) {
+                matchFound = true;
+            }
+        }
+        if(matchFound == false) {
+            groupThree.push_back(groupTwo[i]);
+        }
+        matchFound = false;
+    }
+
+    //Sort vector and display results
+    sort(groupThree.begin(), groupThree.end(), greater<int>());
 
     cout << "Answer: ";
 
-
+    //If Vector is empty display none
+    if(groupThree.size() == 0) {
+        cout << "None" << endl;
+    }
+    //Otherwise display results
+    else {
+        for (int x = 0; x != groupThree.size(); ++x) {
+            cout << groupThree[x] << " ";
+        }
+    }
     return 0;
 }
 

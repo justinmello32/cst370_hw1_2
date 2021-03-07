@@ -76,7 +76,7 @@ int main() {
 
     //If Vector is empty display none
     if(groupThree.size() == 0) {
-        cout << "None" << endl;
+        cout << "NONE" << endl;
     }
     //Otherwise display results
     else {
